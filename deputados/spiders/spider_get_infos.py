@@ -171,6 +171,32 @@ class GetInfosSpider(scrapy.Spider):
         data["gasto_out_par"].append(valores[28])
         data["gasto_nov_par"].append(valores[31])
         data["gasto_dez_par"].append(0)
+
+        gasto_total = response.css("#percentualgastoverbagabinete").getall()
+        valores = Selector(text=gasto_total[0]).xpath("//td/text()").getall()
+        data["gasto_total_gab"] = valores[1]
+        gasto_mensal = response.css("#gastomensalverbagabinete").getall()
+        valores = Selector(text=gasto_mensal[0]).xpath("//td/text()").getall()
+        data["gasto_jan_gab"].append(valores[1])
+        data["gasto_fev_gab"].append(valores[4])
+        data["gasto_mar_gab"].append(valores[7])
+        data["gasto_abr_gab"].append(valores[10])
+        data["gasto_maio_gab"].append(valores[13])
+        data["gasto_junho_gab"].append(valores[16])
+        data["gasto_jul_gab"].append(valores[19])
+        data["gasto_agosto_gab"].append(valores[22])
+        data["gasto_set_gab"].append(valores[25])
+        data["gasto_out_gab"].append(valores[28])
+        data["gasto_nov_gab"].append(0)
+        data["gasto_dez_gab"].append(0)
+
+        beneficios = response.css("div.beneficio").getall()
+        valores = Selector(text=beneficios[1]).xpath("//a/text()").getall()
+        valor_formatado = valores[1].strip().split("R$")
+        valor_formatado = valor_formatado[1].strip()
+        data["salario_bruto_par"].append(valor_formatado)
+        valores = Selector(text=beneficios[4]).xpath("//span/text()").getall()
+        data["quant_viagem"].append(valores[0])
         # filename = nome + ".html"
         #    with open(filename, "wb") as f:
         #        f.write(response.body)
