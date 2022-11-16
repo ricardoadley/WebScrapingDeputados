@@ -140,24 +140,18 @@ class GetInfosSpider(scrapy.Spider):
         data["nome"].append(Selector(text=nome[0]).xpath("//li/text()").get())
         data["genero"].append("F")
         dias = response.css("dd.list-table__definition-description").getall()
-        data["presença_plenario"].append(
-            Selector(text=dias[0]).xpath("//dd/text()").get()
-        )
-        data["ausencia_plenario"].append(
-            Selector(text=dias[2]).xpath("//dd/text()").get()
-        )
-        data["ausencia_justificada_plenario"].append(
-            Selector(text=dias[1]).xpath("//dd/text()").get()
-        )
-        data["presenca_comissao"].append(
-            Selector(text=dias[3]).xpath("//dd/text()").get()
-        )
-        data["ausencia_comissao"].append(
-            Selector(text=dias[5]).xpath("//dd/text()").get()
-        )
-        data["ausencia_justificada_comissao"].append(
-            Selector(text=dias[4]).xpath("//dd/text()").get()
-        )
+        numero = Selector(text=dias[0]).xpath("//dd/text()").get().strip().split(" ")
+        data["presença_plenario"].append(numero[0])
+        numero = Selector(text=dias[2]).xpath("//dd/text()").get().strip().split(" ")
+        data["ausencia_plenario"].append(numero[0])
+        numero = Selector(text=dias[1]).xpath("//dd/text()").get().strip().split(" ")
+        data["ausencia_justificada_plenario"].append(numero[0])
+        numero = Selector(text=dias[3]).xpath("//dd/text()").get().strip().split(" ")
+        data["presenca_comissao"].append(numero[0])
+        numero = Selector(text=dias[5]).xpath("//dd/text()").get().strip().split(" ")
+        data["ausencia_comissao"].append(numero[0])
+        numero = Selector(text=dias[4]).xpath("//dd/text()").get().strip().split(" ")
+        data["ausencia_justificada_comissao"].append(numero[0])
         # filename = nome + ".html"
         #    with open(filename, "wb") as f:
         #        f.write(response.body)
