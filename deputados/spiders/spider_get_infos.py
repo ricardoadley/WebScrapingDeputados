@@ -152,17 +152,38 @@ class GetInfosSpider(scrapy.Spider):
         data["ausencia_comissao"].append(numero[0])
         numero = Selector(text=dias[4]).xpath("//dd/text()").get().strip().split(" ")
         data["ausencia_justificada_comissao"].append(numero[0])
+        nascimento = Selector(text=nome[0]).xpath("//li/text()").getall()
+        data["data_nascimento"].append(nascimento[4])
+        gasto_total = response.css("#percentualgastocotaparlamentar").getall()
+        valores = Selector(text=gasto_total[0]).xpath("//td/text()").getall()
+        data["gasto_total_par"] = valores[1]
+        gasto_mensal = response.css("#gastomensalcotaparlamentar").getall()
+        valores = Selector(text=gasto_mensal[0]).xpath("//td/text()").getall()
+        data["gasto_jan_par"].append(valores[1])
+        data["gasto_fev_par"].append(valores[4])
+        data["gasto_mar_par"].append(valores[7])
+        data["gasto_abr_par"].append(valores[10])
+        data["gasto_maio_par"].append(valores[13])
+        data["gasto_junho_par"].append(valores[16])
+        data["gasto_jul_par"].append(valores[19])
+        data["gasto_agosto_par"].append(valores[22])
+        data["gasto_set_par"].append(valores[25])
+        data["gasto_out_par"].append(valores[28])
+        data["gasto_nov_par"].append(valores[31])
+        data["gasto_dez_par"].append(0)
         # filename = nome + ".html"
         #    with open(filename, "wb") as f:
         #        f.write(response.body)
         #    self.log(f"Saved file {filename}")
-        # print(
-        #    "------------------------------------------ COMEÇO -----------------------------------------"
-        # )
-        # print(dias)
+        print(
+            "------------------------------------------ COMEÇO -----------------------------------------"
+        )
+        # print(Selector(text=nome[0]).xpath("//li/text()").getall())
         # print("------------------- POSIÇÃO 0 --------------------------")
-        # print(dias[2])
-        # print(
-        #    "------------------------------------------ FIM -----------------------------------------"
-        # )
+        # print(valores)
+        print("--------aaaaaa----")
         print(data)
+        print(
+            "------------------------------------------ FIM -----------------------------------------"
+        )
+        # print(Selector(text=nome[0]).xpath("//li/text()").getall())
