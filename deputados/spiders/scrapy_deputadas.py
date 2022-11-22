@@ -126,65 +126,65 @@ class GetInfosSpider(scrapy.Spider):
         yield {
             "nome": nome_formatado if nome_formatado else "",
             "genero": "F",
-            "presença_plenario": numero[0] if numero[0:] else "",
-            "ausencia_plenario": ausen[0] if ausen[0:] else "",
-            "ausencia_justificada_plenario": ausenj[0] if ausenj[0:] else "",
-            "presenca_comissao": pcom[0] if pcom[0:] else "",
-            "ausencia_comissao": ausenc[0] if ausenc[0:] else "",
-            "ausencia_justificada_comissao": ausencj[0] if ausencj[0:] else "",
+            "presença_plenario": numero[0] if numero[0:] else 0,
+            "ausencia_plenario": ausen[0] if ausen[0:] else 0,
+            "ausencia_justificada_plenario": ausenj[0] if ausenj[0:] else 0,
+            "presenca_comissao": pcom[0] if pcom[0:] else 0,
+            "ausencia_comissao": ausenc[0] if ausenc[0:] else 0,
+            "ausencia_justificada_comissao": ausencj[0] if ausencj[0:] else 0,
             "data_nascimento": nascimento[4] if nascimento[4:] else "",
-            "gasto_total_par": self.to_float(valores[1]) if valores[1:] else "",
-            "gasto_jan_par": self.to_float(valoresm[1]) if valoresm[1:] else "",
-            "gasto_fev_par": self.to_float(valoresm[4]) if valoresm[4:] else "",
-            "gasto_mar_par": self.to_float(valoresm[7]) if valoresm[7:] else "",
-            "gasto_abr_par": self.to_float(valoresm[10]) if valoresm[10:] else "",
-            "gasto_maio_par": self.to_float(valoresm[13]) if valoresm[13:] else "",
-            "gasto_junho_par": self.to_float(valoresm[16]) if valoresm[16:] else "",
-            "gasto_jul_par": self.to_float(valoresm[19]) if valoresm[19:] else "",
-            "gasto_agosto_par": self.to_float(valoresm[22]) if valoresm[22:] else "",
-            "gasto_set_par": self.to_float(valoresm[25]) if valoresm[25:] else "",
-            "gasto_out_par": self.to_float(valoresm[28]) if valoresm[28:] else "",
-            "gasto_nov_par": self.to_float(valoresm[31]) if valoresm[31:] else "",
+            "gasto_total_par": self.to_float(valores[1]) if valores[1:] else 0,
+            "gasto_jan_par": self.to_float(valoresm[1]) if valoresm[1:] else 0,
+            "gasto_fev_par": self.to_float(valoresm[4]) if valoresm[4:] else 0,
+            "gasto_mar_par": self.to_float(valoresm[7]) if valoresm[7:] else 0,
+            "gasto_abr_par": self.to_float(valoresm[10]) if valoresm[10:] else 0,
+            "gasto_maio_par": self.to_float(valoresm[13]) if valoresm[13:] else 0,
+            "gasto_junho_par": self.to_float(valoresm[16]) if valoresm[16:] else 0,
+            "gasto_jul_par": self.to_float(valoresm[19]) if valoresm[19:] else 0,
+            "gasto_agosto_par": self.to_float(valoresm[22]) if valoresm[22:] else 0,
+            "gasto_set_par": self.to_float(valoresm[25]) if valoresm[25:] else 0,
+            "gasto_out_par": self.to_float(valoresm[28]) if valoresm[28:] else 0,
+            "gasto_nov_par": self.to_float(valoresm[31]) if valoresm[31:] else 0,
             "gasto_dez_par": 0,
-            "gasto_total_gab": self.to_float(valores_gab[1]) if valores_gab[1:] else "",
+            "gasto_total_gab": self.to_float(valores_gab[1]) if valores_gab[1:] else 0,
             "gasto_jan_gab": self.to_float(valores_gab_mensal[1])
             if valores_gab_mensal[1:]
-            else "",
+            else 0,
             "gasto_fev_gab": self.to_float(valores_gab_mensal[4])
             if valores_gab_mensal[4:]
-            else "",
+            else 0,
             "gasto_mar_gab": self.to_float(valores_gab_mensal[7])
             if valores_gab_mensal[7:]
-            else "",
+            else 0,
             "gasto_abr_gab": self.to_float(valores_gab_mensal[10])
             if valores_gab_mensal[10:]
-            else "",
+            else 0,
             "gasto_maio_gab": self.to_float(valores_gab_mensal[13])
             if valores_gab_mensal[13:]
-            else "",
+            else 0,
             "gasto_junho_gab": self.to_float(valores_gab_mensal[16])
             if valores_gab_mensal[16:]
-            else "",
+            else 0,
             "gasto_jul_gab": self.to_float(valores_gab_mensal[19])
             if valores_gab_mensal[19:]
-            else "",
+            else 0,
             "gasto_agosto_gab": self.to_float(valores_gab_mensal[22])
             if valores_gab_mensal[22:]
-            else "",
+            else 0,
             "gasto_set_gab": self.to_float(valores_gab_mensal[25])
             if valores_gab_mensal[25:]
-            else "",
+            else 0,
             "gasto_out_gab": self.to_float(valores_gab_mensal[28])
             if valores_gab_mensal[28:]
-            else "",
+            else 0,
             "gasto_nov_gab": self.to_float(valores_gab_mensal[31])
             if valores_gab_mensal[31:]
-            else "",
+            else 0,
             "gasto_dez_gab": self.to_float(valores_gab_mensal[34])
             if valores_gab_mensal[34:]
-            else "",
+            else 0,
             "salario_bruto_par": self.to_float(valor_formatado)
             if valor_formatado
-            else "",
-            "quant_viagem": qtd_viag[0] if qtd_viag[0:] else "",
+            else 0,
+            "quant_viagem": qtd_viag[0] if qtd_viag[0:] else 0,
         }
