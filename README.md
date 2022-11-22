@@ -8,4 +8,4 @@
 
 - Você pode encontrar o código utilizado para o scraping dos deputados [aqui](deputados/spiders/scrapy_deputados.py) </li>
 - Você pode encontrar o código utilizado para o scraping dos deputadas [aqui](deputados/spiders/scrapy_deputadas.py) </li>
-- Você pode encontrar o csv gerado para deputados [aqui](deputados/spiders/deputados.csv) e para deputadas [aqui](deputados/spiders/deputadas.csv)</li>
+- Você pode encontrar o csv gerado para deputados [aqui](deputados.csv) e para deputadas [aqui](deputadas.csv)</li>
